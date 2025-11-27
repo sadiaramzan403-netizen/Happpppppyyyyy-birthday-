@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Happy Birthday My Batman!</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+
+body {
+  margin:0; padding:0;
+  font-family:'Playfair Display', serif;
+  background: linear-gradient(120deg, #f7e6e3, #fff1dc, #ffe4e1);
+  overflow:hidden;
+  text-align:center;
+}
+
+/* Confetti */
+.confetti {position:absolute; width:6px; height:6px; border-radius:50%; opacity:0.9;
+  animation: drop 5s linear infinite, sway 2s ease-in-out infinite alternate;}
+@keyframes drop {0%{transform:translateY(0);}100%{transform:translateY(800px);}}
+@keyframes sway {0%{transform:translateX(0);}100%{transform:translateX(30px);}}
+
+/* Balloons */
+.balloon {position:absolute;width:30px;height:45px;border-radius:50%;opacity:0.85;animation: floatUp linear infinite;}
+@keyframes floatUp {0%{transform:translateY(800px);}100%{transform:translateY(-100px);}}
+
+/* Sparkles */
+.sparkle {position:absolute;width:4px;height:4px;border-radius:50%;background:white;opacity:0.8;animation: sparkleAnim 2s linear infinite alternate;}
+@keyframes sparkleAnim {0%{transform:translateY(0) scale(1);}50%{transform:translateY(-20px) scale(1.5);}100%{transform:translateY(0) scale(1);}}
+
+/* Container */
+.container{position:relative; z-index:1; padding-top:120px;}
+h1{font-size:3em;color:#222;text-shadow:2px 2px #f2c94c;margin-bottom:20px;animation: textGlow 2s ease-in-out infinite alternate;}
+@keyframes textGlow {0%{text-shadow:2px 2px #f2c94c;}50%{text-shadow:2px 2px #ffd700;}100%{text-shadow:2px 2px #f2c94c;}}
+
+/* Countdown */
+#countdown{font-size:2em;margin:10px 0 30px;color:#444;font-weight:bold;}
+
+/* Cake Image */
+.cake-container {width:250px;margin:0 auto 30px; animation:bounce 2s ease-in-out infinite;}
+@keyframes bounce {0%,100%{transform:translateY(0);}50%{transform:translateY(-15px);}}
+
+/* Button */
+button{padding:16px 32px;font-size:1.2em;border:none;border-radius:12px;background:#f2c94c;color:#000;cursor:pointer;transition:0.3s;margin-bottom:50px;}
+button:hover{background:#e6b800;}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Happy 22nd Birthday My Batman!</h1>
+
+  <!-- Cake Image -->
+  <div class=.cake-container {width:250px;margin:0 auto 30px; animation:bounce 2s ease-in-out infinite;}
+@keyframes bounce {0%,100%{transform:translateY(0);}50%{transform:translateY(-15px);}}
+    <img src="cake.png" alt="Birthday Cake" style="width:100%; border-radius:15px; box-shadow:0 0 25px rgba(0,0,0,0.2);">
+  </div>
+
+  <div id="countdown"></div>
+  <button onclick="location.href='page2.html'">Open Surprise Box</button>
+</div>
+
+<script>
+// Confetti
+const confettiColors = ['#f2c94c','#ffb6b9','#6bc1ff','#ff9f43','#d5a6bd'];
+for(let i=0;i<60;i++){
+  let c=document.createElement('div'); c.className='confetti';
+  c.style.background=confettiColors[Math.floor(Math.random()*confettiColors.length)];
+  c.style.left=Math.random()*window.innerWidth+'px';
+  c.style.width=c.style.height=(4+Math.random()*4)+'px';
+  c.style.animationDelay=(Math.random()*5)+'s';
+  document.body.appendChild(c);
+}
+
+// Balloons
+for(let i=0;i<8;i++){
+  let b=document.createElement('div'); b.className='balloon';
+  const balloonColors=['#ffb6b9','#6bc1ff','#f2c94c','#ff9f43','#d5a6bd'];
+  b.style.background=balloonColors[Math.floor(Math.random()*balloonColors.length)];
+  b.style.left=Math.random()*window.innerWidth+'px';
+  b.style.animationDuration=(6+Math.random()*4)+'s';
+  document.body.appendChild(b);
+}
+
+// Sparkles
+for(let i=0;i<50;i++){
+  let s=document.createElement('div'); s.className='sparkle';
+  s.style.left=Math.random()*window.innerWidth+'px';
+  s.style.top=(Math.random()*500+50)+'px';
+  s.style.width=s.style.height=(2+Math.random()*3)+'px';
+  s.style.animationDuration=(1+Math.random()*1)+'s';
+  document.body.appendChild(s);
+}
+
+// Countdown
+const targetDate = new Date('November 28, 2025 00:00:00').getTime();
+const countdown = document.getElementById('countdown');
+function updateCountdown(){
+  const now = new Date().getTime();
+  const d = targetDate - now;
+  if(d<0){countdown.innerHTML="🎉 Today is the Day! 🎉"; return;}
+  const days=Math.floor(d/(1000*60*60*24));
+  const hours=Math.floor((d%(1000*60*60*24))/(1000*60*60));
+  const mins=Math.floor((d%(1000*60*60))/(1000*60));
+  const secs=Math.floor((d%(1000*60))/1000);
+  countdown.innerHTML=`${days}d ${hours}h ${mins}m ${secs}s`;
+}
+setInterval(updateCountdown,1000);
+updateCountdown();
+</script>
+
+</body>
+</html>   
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>100 Reasons I Love You</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+
+body{
+  margin:0;padding:20px;font-family:'Playfair Display', serif;
+  background:#fff; color:#333;overflow-x:hidden;
+}
+
+h1{text-align:center;font-size:2.5em;margin-bottom:25px; color:#222;}
+
+.reason{
+  font-size:1.2em;margin:10px 0;padding:10px;
+  border-bottom:1px solid #eee;
+}
+
+button{
+  padding:16px 32px;font-size:1.1em;border:none;border-radius:10px;
+  background:#f2c94c;color:#000;cursor:pointer;transition:0.3s;margin-top:30px;display:block;margin:auto;
+}
+button:hover{background:#e6b800;}
+</style>
+</head>
+<body>
+
+<h1>100 Reasons I Love You ❤️💛</h1>
+
+<div id="reasons-container"></div>
+
+<button onclick="location.href='page3.html'">Read My Love Letter ✉️</button>
+
+<script>
+const reasons = [
+"1. You make me smile 😄",
+"2. Your voice is my favorite 🎵",
+"3. You make simple days special 🌸",
+"4. Your hugs feel like home 🏠",
+"5. You understand me without words 🤗",
+"6. You always lift me up 💖",
+"7. Your laugh is contagious 😂",
+"8. You believe in me 💫",
+"9. You are my peace 🕊️",
+"10. You make ordinary moments magical ✨",
+"11. Your eyes sparkle with mischief 😉",
+"12. You are my Batman 🦇",
+"13. You accept my chaos 😅",
+"14. You inspire me to be better 🌟",
+"15. Your heart is huge 💛",
+"16. You make me feel safe 🛡️",
+"17. You are generous 🎁",
+"18. You are thoughtful 📝",
+"19. You make me laugh until I cry 😭😂",
+"20. You are simply amazing 🌈",
+"21. Your smile brightens my day ☀️",
+"22. You know me better than anyone 👀",
+"23. You are my favorite hello and hardest goodbye 🥰",
+"24. You are kind and gentle 🌷",
+"25. You always keep your promises 🤝",
+"26. You have the best ideas 💡",
+"27. You are my comfort zone 🛋️",
+"28. You make challenges easier 🏔️",
+"29. You are thoughtful with surprises 🎉",
+"30. You make everything fun 🎈",
+"31. You are loyal ❤️",
+"32. You protect me 🛡️",
+"33. You understand my quirks 🤪",
+"34. You love without conditions 💖",
+"35. You are patient ⏳",
+"36. You are adventurous 🌍",
+"37. You are my inspiration 🌟",
+"38. You make me proud 🏆",
+"39. You are reliable 📌",
+"40. You are supportive 🤗",
+"41. You are honest 📝",
+"42. You are my sunshine 🌞",
+"43. You make every moment count ⏰",
+"44. You love deeply ❤️",
+"45. You are respectful 🤝",
+"46. You are funny 😆",
+"47. You are smart 🧠",
+"48. You are charming 😍",
+"49. You are humble 🌿",
+"50. You are caring 💛",
+"51. You believe in us 💑",
+"52. You make me feel special 🌸",
+"53. You are my safe place 🏡",
+"54. You are reliable 📌",
+"55. You are romantic 💌",
+"56. You make ordinary things beautiful 🌹",
+"57. You are attentive 👀",
+"58. You love my chaos 😅",
+"59. You make life colorful 🎨",
+"60. You are my everything 💖",
+"61. You are generous with love 💛",
+"62. You are supportive in dreams 🌟",
+"63. You are affectionate 🥰",
+"64. You are my best friend 🤗",
+"65. You are playful 😜",
+"66. You encourage me 💪",
+"67. You are my laughter 😄",
+"68. You love me truly ❤️",
+"69. You are thoughtful with details ✨",
+"70. You make me feel confident 💃",
+"71. You make me feel beautiful 🌸",
+"72. You are attentive to feelings 🥹",
+"73. You are courageous 🦸",
+"74. You are my partner in crime 🦇",
+"75. You make surprises special 🎁",
+"76. You make every day better 🌞",
+"77. You are creative 🎨",
+"78. You are inspiring 🌟",
+"79. You are understanding 🤝",
+"80. You love unconditionally ❤️",
+"81. You are my motivation 💪",
+"82. You make me feel alive 🌷",
+"83. You are adventurous 🗺️",
+"84. You are passionate 🔥",
+"85. You are empathetic 🤗",
+"86. You are a great listener 👂",
+"87. You are dependable 📌",
+"88. You are my favorite person 🌸",
+"89. You make me feel complete 💖",
+"90. You are my calm in storms 🌊",
+"91. You love with heart and soul ❤️",
+"92. You are gentle 🌿",
+"93. You are my partner forever 💑",
+"94. You make me laugh endlessly 😂",
+"95. You are thoughtful and kind 🌷",
+"96. You make dreams possible 🌟",
+"97. You are my inspiration daily 💛",
+"98. You love me fully 🥰",
+"99. You make everything brighter 🌞",
+"100. You are my everything 💖🦇"
+];
+
+const container=document.getElementById('reasons-container');
+reasons.forEach(r=>{
+  const div=document.createElement('div');
+  div.className='reason';
+  div.innerText=r;
+  container.appendChild(div);
+});
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>My Love Letter</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+body{
+  margin:0;padding:40px;font-family:'Indie Flower', cursive;
+  background:linear-gradient(120deg,#fff1dc,#f7e6e3,#ffe4e1);
+  color:#222;font-size:1.25em;line-height:1.6;overflow-x:hidden;
+}
+h1{text-align:center;font-size:2.2em;margin-bottom:20px;}
+.container{
+  max-width:800px;margin:auto;padding:25px;background:rgba(255,255,255,0.5);
+  border-radius:15px;box-shadow:0 0 15px rgba(0,0,0,0.1);
+}
+</style>
+</head>
+<body>
+<h1>My Love Letter</h1>
+<div class="container">
+<p>We met on 17 January 2024, the day I can never forget, it was the most unplanned and most sudden encounter in my life that I never thought could bring me so much happiness and laughter. Yes, we have our good days and bad days, but the thing that never changes is our bond, the level of comfort that I have with you that I could never have imagined with a boy. But with you, everything seems so easy, the expression of my words, my feelings and emotions seems so valid, the level of attention you pay is unforgettable. You are a part of my life that I can never forget nor do I want to. You are the person I can love without any benefit, you are the person who taught me the real love. I can never thank you enough for being part of my life and embracing my chaos so beautifully, I envy you beyond words. I met you when I was a teenager and now I am no more in that era but still I feel like a child with you, the amount of comfort and peace you bring literally makes me emotional. You mean the world to me, I literally cannot expect my life without you, mera bacha. Please stay with me in each and every chaos, I need you.</p>
+<button onclick="location.href='page4.html'">Read My Prayers for You</button>
+</div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>My Prayers for You</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+body{
+  margin:0;padding:40px;font-family:'Indie Flower', cursive;
+  background:linear-gradient(120deg,#fff1dc,#f7e6e3,#ffe4e1);
+  color:#222;font-size:1.25em;line-height:1.6;
+}
+h1{text-align:center;font-size:2em;margin-bottom:20px;}
+.container{
+  max-width:800px;margin:auto;padding:25px;background:rgba(255,255,255,0.5);
+  border-radius:15px;box-shadow:0 0 15px rgba(0,0,0,0.1);
+}
+</style>
+</head>
+<body>
+<h1>My Prayers for You</h1>
+<div class="container">
+<p>May Allah bless you with the best.<br>
+May Allah grant you the success that sustains.<br>
+May Allah make you a person He loves.<br>
+May Allah make you a great son, brother, husband and father.<br>
+May Allah ease every pain you come across.<br>
+May Allah never ever make you go through any pain or suffering that can stay with you.<br>
+May Allah always keep you on a righteous path.<br>
+May Allah keep you with me till the day I die.<br>
+May Allah always protect you from evil.<br>
+May Allah always protect your dignity.<br>
+May Allah protect you from bad company and bad influence.<br>
+May Allah bless you with more than you deserve.<br><br>
+(Ameen sum Ameen)<br></p>
+</div>
+</body>
+</html>
